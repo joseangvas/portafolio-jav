@@ -437,21 +437,23 @@
     <section id="contacto">
       <h3 class="titulo-seccion">Contactame Ahora</h3>
       <div class="contenedor-form">
-        <form action="">
+        <form id="form" action="">
           <div class="fila mitad">
             <input
               type="text"
               placeholder="Nombre Completo *"
               class="input-mitad"
+              name="nombre"
             />
             <input
               type="email"
               placeholder="Dirección de Email"
               class="input-mitad"
+              name="correo"
             />
           </div>
           <div class="fila">
-            <input type="text" placeholder="Tema..." class="input-full" />
+            <input type="text" placeholder="Tema..." class="input-full" name="tema"/>
           </div>
           <div class="fila">
             <textarea
@@ -461,25 +463,57 @@
               rows="10"
               placeholder="Tu Mensaje..."
               class="input-full"
+              name="mensaje"
             ></textarea>
           </div>
 
-          <input type="submit" value="Enviar Mensaje" class="btn-enviar" />
+          <input type="submit" id="button" value="Enviar Mensaje" class="btn-enviar" />
         </form>
       </div> -->
     </section>
-
+    
     <!-- SECCION FOOTER -->
     <footer>
       <p>José Angel Vásquez - 2023</p>
       <div class="redes">
-        <a href="https://www.linkedin.com/in/joséangel-vásquez-77a68926b"><i class="fa-brands fa-linkedin"></i></a>
-        <a href="#"><i class="fa-brands fa-youtube"></i></a>
-        <a href="#"><i class="fa-brands fa-facebook"></i></a>
-        <a href="#"><i class="fa-brands fa-instagram-square"></i></a>
+        <a href="https://www.linkedin.com/in/josé-angel-vásquez-77a68926b" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="https://www.youtube.com/channel/UCW5eDumIArhX3c0R_w2jBxg" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+        <a href="https://www.facebook.com/joseangvas" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+        <a href="https://www.instagram.com/joseangvas/?hl=es" target="_blank"><i class="fa-brands fa-instagram-square"></i></a>
       </div>
     </footer>
-
+    
     <script src="/scripts/script.js"></script>
+
+    <script type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+    </script>
+
+    <script type="text/javascript">emailjs.init('VZOuTR1uafVhkk2T2')</script>
+
+    <script type="text/javascript" src="/scripts/correo.js"></script>
+
+    <!-- <script>
+      const btn = document.getElementById('button');
+
+      document.getElementById('form')
+      .addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        btn.value = 'Enviando...';
+
+        const serviceID = 'default_service';
+        const templateID = 'template_du9z3r7';
+
+        emailjs.sendForm(serviceID, templateID, this)
+          .then(() => {
+            btn.value = 'Enviar Mensaje';
+            alert('Mensaje Enviado Correctamente!');
+          }, (err) => {
+            btn.value = 'Enviar Mensaje';
+            alert(JSON.stringify(err));
+          });
+      });
+    </script> -->
   </body>
 </html>
